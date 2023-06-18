@@ -1,0 +1,36 @@
+info: experiment information
+
+gpu: True
+run_with_slurm: False
+data_folder: /path/to/data
+vis: False
+observe: False
+fullset: True
+
+dataset: cifar10
+valid_ratio: 0.222222 # 2/9
+model: resnet18
+pretrained: True
+criterion: cross_entropy
+optimizer: sgd
+lr_sched: multistep_lr
+
+rnd_seed: 123
+num_epochs: 32
+batch_size: 128
+lrate: 0.01 # The learning rates can be adjusted here, since coreset is offline
+patience: 5
+weight_decay: 0.0001
+momentum: 0.9
+grad_clip: False
+
+multi_label: False
+
+selection_method: random&1-dim&topratio
+data_val_batch_size: 128
+
+sample_size: 0.3
+lr_adjust: False
+
+use_coreset: True
+coreset: ours # other options: cdal, deepfool, uncertainty, random
